@@ -1,0 +1,48 @@
+@model IEnumerable<NivelModel>
+@{
+    ViewBag.Subtitulo = "Niveis";
+}
+
+<header class="d-flex justify-content-between align-items-center">
+    <div>
+        <h1 class="text-primary">@ViewBag.Subtitulo</h1>
+    </div>
+    <div>
+        <a asp-action="Criar" class="btn btn-primary">Novo Nivel</a>
+    </div>
+</header>
+<hr>
+
+<partial name="_Mensagem"></partial>
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-striped tabela">
+        <thead>
+            <tr>
+                <th>Classificação</th>
+                <th>Descrição</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var nivel in Model)
+            {
+                <tr>
+                    <td>@nivel.Classificacao</td>
+                    <td>@nivel.Descricao</td>
+                    <td>
+                        <a asp-action="Criar" asp-route-id="@nivel.IdNivel"
+                    class="btn btn-sm btn-secondary"><i
+                        class="bi-pencil" title="Editar"></i></a>
+                        <a asp-action="Excluir" asp-route-id="@nivel.IdNivel" class="btn btn-sm btn-danger"><i class="bi-trash" title="Excluir"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Não há nenhuma nivel.</p>
+}

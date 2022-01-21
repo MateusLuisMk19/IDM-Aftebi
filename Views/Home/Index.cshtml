@@ -1,0 +1,41 @@
+@inject UserManager<ColaboradorModel> _userManager
+
+@{
+    ViewBag.Subtitulo = "Página Principal";
+    var usuarioLog = await _userManager.GetUserAsync(Context.User);
+    var administradores = ViewBag.Administradores as IEnumerable<string>;
+    var coordenadores = ViewBag.Coordenadores as IEnumerable<string>;
+}
+@* <h1 class="text-primary">Envio de E-mails com ASP.NET Core</h1>
+    <hr>
+    <p>Esta aplicação foi construída para fins didáticos. Ela mostra como <b>enviar e-mails</b> a partir de uma aplicação
+    web ASP.NET Core.</p>
+    <p><a class="btn btn-primary" asp-action="EnviarEmailTeste">Enviar Email de Teste</a>
+*@
+
+<header class="d-flex justify-content-between align-items-end">
+    <div>
+        <div></div>
+        @if (User.Identity.IsAuthenticated && !User.IsInRole("colaborador"))
+        {
+            <a asp-controller="Requisicao" asp-action="Pedido" class="bi bi-cast"></a>
+
+        }
+    </div>
+</header>
+
+<style>
+    img:hover {
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+    }
+</style>
+
+<div class="text-center">
+    <h1> Sistema IDM</h1>
+    <h3>A nova geração de Sistemas Integrados</h3>
+    <p>Leia sobre <a href="https://blog-pt.checklistfacil.com/sgi/"> sistema de gestão de dados integrados</a>.</p>
+</div>
+<div class="text-center">
+    <img src="/images/IDMWalpaper2.jpg" style="width: 70%; height: 80%;">
+</div>

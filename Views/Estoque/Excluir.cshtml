@@ -1,0 +1,17 @@
+@model EstoqueModel
+@{
+    ViewBag.Subtitulo = "Excluir Estoque";
+} 
+
+<h1 class="text-primary">@ViewBag.Subtitulo</h1>
+<hr>
+
+<h4>Deseja realmente excluir o Id<span class="text-danger">@Model.IdProduto </span>do estoque?</h4>
+
+<form asp-action="Excluir" class="w-25">
+    <input type="hidden" asp-for="@Model.IdEstoque">
+    <div class="mt-3">
+        <a asp-action="Index" class="btn btn-success">Não</a>
+        <button class="btn btn-danger" type="submit">Sim</button>
+    </div>
+</form>

@@ -1,0 +1,91 @@
+@model IEnumerable<RequisicaoModel>
+@using App.Extensions
+@using System.Globalization
+@inject UserManager<ColaboradorModel> _userManager
+@{
+    var usuario = await _userManager.GetUserAsync(Context.User);
+    ViewBag.Subtitulo = "Requisições";
+}
+
+<header class="d-flex justify-content-between align-items-center">
+    <div>
+        <h1 class="text-primary">@ViewBag.Subtitulo</h1>
+    </div>
+    <div>
+        <a asp-action="Criar" class="btn btn-primary">Nova Requisição</a>
+    </div>
+</header>
+<hr>
+
+<partial name="_Mensagem"></partial>
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-striped tabela">
+        <thead>
+            <tr>
+                <th>Nº ReQ</th>
+                <th>Data/Hora de Requisição</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th>Estado</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var requisicao in Model)
+            {
+                <tr>
+                    <td>@("IDMRQ" + requisicao.IdRequisicao.ToString("D2"))</td>
+                    <td>@requisicao.DataRequisicao</td>
+                    <td>@requisicao.ProdutoName.ResumoName()</td>
+                    <td>@requisicao.Quantidade</td>
+                    <td>@requisicao.ValorTotal.ToString("C2", CultureInfo.CreateSpecificCulture("pt-PT"))</td>
+                    @if (requisicao.EstadoReq == Estado.Aprovado)
+                    {
+                        <td><b class="text-success">@requisicao.EstadoReq</b></td>
+                    }
+                    else if (requisicao.EstadoReq == Estado.Rejeitado)
+                    {
+                        <td><b class="text-danger">@requisicao.EstadoReq</b></td>
+                    }
+                    else if (requisicao.EstadoReq == Estado.Pendente)
+                    {
+                        <td><b class="text-secondary">@requisicao.EstadoReq</b></td>
+                    }
+                    else
+                    {
+                        <td><b>@requisicao.EstadoReq</b></td>
+                    }
+                    <td>
+                        <a asp-action="Detalhes" asp-route-id="@requisicao.IdRequisicao"
+                    class="btn btn-sm btn-primary"><i
+                        class="bi bi-card-text" title="Detalhes"></i></a>
+                        @if(requisicao.IdColaborador == usuario.Id)
+                        {
+                            @if (requisicao.EstadoReq == Estado.Aprovado || requisicao.EstadoReq == Estado.Rejeitado)
+                            {
+                                <a class="btn btn-sm btn-secondary"><i class="bi-lock" title="Fechado"></i></a>
+                            }
+                            else if (requisicao.EstadoReq == Estado.Sem_Estoque || requisicao.EstadoReq == Estado.Pendente)
+                            {
+                                <a asp-action="Excluir" asp-route-id="@requisicao.IdRequisicao" class="btn btn-sm btn-danger"><i class="bi-trash" title="Canselar"></i></a>
+                            }
+                        }
+                        else
+                        {
+                            <a class="btn btn-sm btn-light">
+                                <i class="bi-dot text-white "></i>
+                            </a>        
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Não há nenhuma requisição.</p>
+}

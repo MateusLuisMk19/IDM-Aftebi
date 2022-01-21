@@ -1,0 +1,17 @@
+@model RequisicaoModel
+@{
+    ViewBag.Subtitulo = "Excluir Fornecedor";
+} 
+
+<h1 class="text-primary">@ViewBag.Subtitulo</h1>
+<hr>
+
+<h4>Deseja realmente Cancelar a requisição <span class="text-danger"><span>IDMRQ</span>@Model.IdRequisicao.ToString("D2")?</span></h4>
+
+<form asp-action="Excluir" class="w-25">
+    <input type="hidden" asp-for="@Model.IdRequisicao">
+    <div class="mt-3">
+        <a asp-action="Index" class="btn btn-success">Não</a>
+        <button class="btn btn-danger" type="submit">Sim</button>
+    </div>
+</form>

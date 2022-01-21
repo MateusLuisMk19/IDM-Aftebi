@@ -1,0 +1,45 @@
+@model FornecedorModel
+@{
+    if (Context.Request.RouteValues.ContainsKey("id"))
+        ViewBag.Subtitulo = "Edição de Fornecedor";
+    else
+        ViewBag.Subtitulo = "Criação de Fornecedor";
+}
+
+<h1 class="text-primary">@ViewBag.Subtitulo</h1>
+<hr>
+
+<form asp-action="Criar" class="row">
+    <input type="hidden" asp-for="@Model.IdFornecedor">
+    <div class="form-group col-sm-8 col-lg-3">
+        <label asp-for="@Model.Nome">Nome</label><br>
+        <input asp-for="@Model.Nome" class="form-control">
+        <span asp-validation-for="@Model.Nome" class="text-danger"></span><br>
+
+        <label asp-for="@Model.Email">Email</label><br>
+        <input asp-for="@Model.Email" class="form-control" >
+        <span asp-validation-for="@Model.Email" class="text-danger"></span><br>
+
+        @* <label asp-for="@Model.NIF">NIF</label><br>
+        <input type="number" asp-for="@Model.NIF" class="form-control">
+        <span asp-validation-for="@Model.NIF" class="text-danger"></span><br>
+
+        <label asp-for="@Model.NIB">NIB</label><br>
+        <input type="number" asp-for="@Model.NIB" class="form-control">
+        <span asp-validation-for="@Model.NIB" class="text-danger"></span><br> *@
+
+        <label asp-for="@Model.Telefone">Telefone</label><br>
+        <input type="tel" asp-for="@Model.Telefone" class="form-control" >
+        <span asp-validation-for="@Model.Telefone" class="text-danger"></span><br>
+
+        <label asp-for="@Model.Endereco">Endereço</label><br>
+        <input asp-for="@Model.Endereco" class="form-control">
+        <span asp-validation-for="@Model.Endereco" class="text-danger"></span>
+
+
+    </div>
+    <div class="mt-3">
+        <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+        <button class="btn btn-primary" type="submit">Salvar</button>
+    </div>
+</form>

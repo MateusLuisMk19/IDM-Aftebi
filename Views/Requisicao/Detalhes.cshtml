@@ -1,0 +1,35 @@
+@model RequisicaoModel
+@using App.Extensions
+
+@{
+    ViewBag.Subtitulo = "Detalhes de Requisição";
+}
+
+<h1 class="text-primary">@ViewBag.Subtitulo</h1>
+<hr>
+
+<div class="row">
+    <div class="col-2">    
+        <p>ID de Requisição: </p>
+        <p>Produto Requirido: </p>
+        <p>Data de Requisição: </p>
+        <p>Quantidade Requerida: </p>
+        <p>Valor Total de Requisição: </p>
+        <p>Nome do Requisitante: </p>
+        <p>Estado de Requisição:</p>
+    </div>
+
+    <div class="col">
+        <p>@("IDMRQ" + Model.IdRequisicao.ToString("D2"))</p>
+        <p>@Model.ProdutoName</p>
+        <p>@Model.DataRequisicao</p>
+        <p>@Model.Quantidade</p>
+        <p>@Model.ValorTotal.ToString("C2")</p>
+        <p>@Model.ColabName</p>
+        <p>@Model.EstadoReq</p>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Index" class="btn btn-light">Voltar</a>
+</div>

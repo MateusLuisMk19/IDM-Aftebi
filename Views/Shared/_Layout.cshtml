@@ -1,0 +1,135 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject UserManager<ColaboradorModel> _userManager
+
+@{
+    var controllerAtual = ViewContext.RouteData.Values["controller"].ToString();
+    var actionAtual = ViewContext.RouteData.Values["action"].ToString();
+
+    var menuInicial = controllerAtual == "Home" ? "active" : "";
+    var menuUsuario = controllerAtual == "Usuario" ? (actionAtual == "AcessoRestrito" ? "" : "active") : "";
+    var menuCategoria = controllerAtual == "Categoria" ? "active" : "";
+    var menuDocumento = controllerAtual == "Documento" ? "active" : "";
+    var menuUMedida = controllerAtual == "UMedida" ? "active" : "";
+    var menuFornecedor = controllerAtual == "Fornecedor" ? "active" : "";
+    var menuNivel = controllerAtual == "Nivel" ? "active" : "";
+    var menuProduto = controllerAtual == "Produto" ? "active" : "";
+    var menuEstoque = controllerAtual == "Estoque" ? "active" : "";
+    var menuRequisicao = controllerAtual == "Requisicao" ? "active" : "";
+
+    var opRequisicao = (actionAtual == "Index" && controllerAtual == "Requisicao") ? "active" : "";
+    var opRequisicaoPend = (actionAtual == "Pedido" && controllerAtual == "Requisicao") ? "active" : "";
+
+    var menu = controllerAtual == "Produto" ? "active" : "";
+
+    var administradores = ViewData["Administradores"] as IEnumerable<string>;
+    var coordenadores = ViewData["Coordenadores"] as IEnumerable<string>;
+    var usuarioLog = await _userManager.GetUserAsync(Context.User);
+
+    var isId = User.IsInRole("colaborador") ? "usuarioLog.Id" : "";
+}
+
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/lib/bootstrap5/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="~/css/estilos.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>IDM :: @ViewBag.Subtitulo</title>
+</head>
+
+<body style="padding-bottom: 80px" class="mb-3">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">IDM</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <div class="row">
+                        <li class="nav-item col">
+                            <a class="nav-link @menuInicial" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item col">
+                                <a class="nav-link @menuUsuario" asp-controller="Usuario" asp-action="Index">Usuários</a>
+                            </li>
+
+                            @if (User.IsInRole("administrador"))
+                            {
+                                <li class="nav-item col">
+                                    <a class="nav-link @menuNivel" asp-controller="Nivel" asp-action="Index">Niveis</a>
+                                </li>
+
+                                <li class="nav-item col">
+                                    <a class="nav-link @menuFornecedor" asp-controller="Fornecedor"
+                                asp-action="Index">Fornecedor</a>
+                                </li>
+                                <li class="nav-item col">
+                                    <a class="nav-link @menuProduto" asp-controller="Produto" asp-action="Index">Produto</a>
+                                </li>
+                            }
+                            <li class="nav-item col">
+                                <a class="nav-link @menuEstoque" asp-controller="Estoque" asp-action="Index">Estoque</a>
+                            </li>
+                            <li class="nav-item col">
+                                @if (User.IsInRole("administrador") || User.IsInRole("coordenador"))
+                                {
+                                    <div class="dropdown">
+                                        <a class="nav-link dropdown-toggle @menuRequisicao " href="#" role="button"
+                                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Requisição
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <li><a class="dropdown-item @opRequisicao" asp-controller="Requisicao"
+                                            asp-action="Index" asp-route-id=@isId>Requisições</a></li>
+                                            <li><a class="dropdown-item @opRequisicaoPend" asp-controller="Requisicao"
+                                            asp-action="Pedido">Requisições Pendentes</a></li>
+                                        </ul>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <a class="nav-link @menuRequisicao" asp-controller="Requisicao" asp-action="Index"
+                                asp-route-id="@usuarioLog.Id">Requisições</a>
+                                }
+
+                            </li>
+                        }
+                    </div>
+                    <div class="col">
+                        <div class="d-flex flex-row-reverse">
+                            <partial name="_LoginLogoutLinkPartial" class="p-2 " />
+                        </div>
+                    </div>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container mt-2">
+        @RenderBody()
+    </div>
+
+    <footer class="border-top fixed-bottom footer text-muted bg-primary">
+        <div class="container text-center text-light">
+            &copy; @DateTime.Now.Year.ToString() - IDM -
+            <a class="text-dark" asp-controller="Home" asp-action="Privacidade">Política de Privacidade</a>
+        </div>
+    </footer>
+
+    <script src="/lib/bootstrap5/dist/js/bootstrap.js"></script>
+
+    @RenderSection("Scripts", false)
+</body>
+
+</html>
