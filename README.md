@@ -19,3 +19,9 @@ administrador.
 • Todas as requisições de nível 2 feitas por coordenadores terão que ser aprovadas por 1 outro coordenador ou
 pelo administrador.
 • todas as requisições em que não exista stock disponível, a requisição deve passar ao estado de pendente.
+
+Perfis genericos
+    admin@email.com         coordenador@email.com         coordenador2@email.com            colaborador@email.com
+
+    pass: Admin@123         pass: Coord@123               pass: Coord2@123                  pass: Colab@123
+
