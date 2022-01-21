@@ -4,18 +4,12 @@
 @inject UserManager<ColaboradorModel> _userManager
 @{
     var usuario = await _userManager.GetUserAsync(Context.User);
-    ViewBag.Subtitulo = "Requisições";
+    ViewBag.Subtitulo = "Historico de Requisições";
 }
 
 <header class="d-flex justify-content-between align-items-center">
     <div>
         <h1 class="text-primary">@ViewBag.Subtitulo</h1>
-    </div>
-    <div>
-        @if (!User.IsInRole("administrador"))
-        {
-            <a asp-action="Criar" class="btn btn-primary">Nova Requisição</a>
-        }   
     </div>
 </header>
 <hr>
@@ -48,15 +42,15 @@
                     <td>@requisicao.ValorTotal.ToString("C2", CultureInfo.CreateSpecificCulture("pt-PT")) </td>
                     <td><a asp-action="Index" asp-route-id="@requisicao.IdColaborador">@requisicao.ColabName</a></td>
 
-                    @if(requisicao.EstadoReq == Estado.Aprovado)
+                    @if (requisicao.EstadoReq == Estado.Aprovado)
                     {
                         <td><b class="text-success">@requisicao.EstadoReq</b></td>
                     }
-                    else if(requisicao.EstadoReq == Estado.Rejeitado)
+                    else if (requisicao.EstadoReq == Estado.Rejeitado)
                     {
                         <td><b class="text-danger">@requisicao.EstadoReq</b></td>
                     }
-                    else if(requisicao.EstadoReq == Estado.Pendente)
+                    else if (requisicao.EstadoReq == Estado.Pendente)
                     {
                         <td><b class="text-secondary">@requisicao.EstadoReq</b></td>
                     }
@@ -65,28 +59,16 @@
                         <td><b>@requisicao.EstadoReq</b></td>
                     }
                     <td>
-                        <a asp-action="Detalhes" asp-route-id="@requisicao.IdRequisicao"
-                    class="btn btn-sm btn-primary"><i
+                        <a asp-action="Detalhes" asp-route-id="@requisicao.IdRequisicao" class="btn btn-sm btn-primary"><i
                         class="bi bi-card-text" title="Detalhes"></i></a>
-                        
-                        @if(requisicao.IdColaborador == usuario.Id)
+
+                        @if (User.IsInRole("administrador"))
                         {
-                            @if (requisicao.EstadoReq == Estado.Aprovado || requisicao.EstadoReq == Estado.Rejeitado)
-                            {
-                                <a class="btn btn-sm btn-secondary"><i class="bi-lock" title="Fechado"></i></a>
-                            }
-                            else if (requisicao.EstadoReq == Estado.Sem_Estoque || requisicao.EstadoReq == Estado.Pendente)
-                            {
-                                <a asp-action="Excluir" asp-route-id="@requisicao.IdRequisicao" class="btn btn-sm btn-danger"><i class="bi-trash" title="Canselar"></i></a>
-                            }
+                            <a asp-action="Excluir" asp-route-id="@requisicao.IdRequisicao" class="btn btn-sm btn-danger"><i
+                        class="bi-trash" title="Canselar"></i></a>
+
                         }
-                        else
-                        {
-                            <a class="btn btn-sm btn-light">
-                                <i class="bi-dot text-white "></i>
-                            </a>        
-                        }
-                        
+
                     </td>
                 </tr>
             }

@@ -138,6 +138,8 @@ namespace IDM.Models
                     if (requis.Quantidade > stock.Quantidade)
                     {
                         requis.EstadoReq = Estado.Sem_Estoque;
+                        TempData["mensagem"] = MensagemModel.Serializar("Não temos essa quantidade em estoque.", TypeMensagem.Erro);
+                        return RedirectToAction("Index");
                     }
                     else
                     {
@@ -146,6 +148,7 @@ namespace IDM.Models
                         {
                             requis.EstadoReq = Estado.Aprovado;
                             stock.Quantidade = stock.Quantidade - requis.Quantidade;
+                            TempData["mensagem"] = MensagemModel.Serializar("A sua requisição foi enviada e aprovada.", TypeMensagem.Info);
                         }
                         else if (requis.Produto.Nivel.Classificacao == 1)
                         {
@@ -153,16 +156,23 @@ namespace IDM.Models
                             {
                                 requis.EstadoReq = Estado.Aprovado;
                                 stock.Quantidade = stock.Quantidade - requis.Quantidade;
+                                TempData["mensagem"] = MensagemModel.Serializar("A sua requisição foi enviada e aprovada.", TypeMensagem.Info);
+
                             }
                             else if (User.IsInRole("colaborador"))
                             {
                                 requis.EstadoReq = Estado.Pendente;
-                                //stock.Quantidade = stock.Quantidade - requis.Quantidade;
+                                stock.Quantidade = stock.Quantidade - requis.Quantidade;
+                                TempData["mensagem"] = MensagemModel.Serializar("A sua requisição foi enviada e aguarda aprovação.", TypeMensagem.Info);
+
                             }
                         }
                         else if (requis.Produto.Nivel.Classificacao == 2)
                         {
                             requis.EstadoReq = Estado.Pendente;
+                            stock.Quantidade = stock.Quantidade - requis.Quantidade;
+                            TempData["mensagem"] = MensagemModel.Serializar("A sua requisição foi enviada e aguarda aprovação.", TypeMensagem.Info);
+
                         }
                     }
 
@@ -282,13 +292,15 @@ namespace IDM.Models
                 {
                     aprovacao.isAprovado = true;
                     /*  */
-
+                    TempData["mensagem"] = MensagemModel.Serializar("Requisição aprovada.", TypeMensagem.Info);
                 }
                 else if (REQ.Produto.Nivel.Classificacao == 2)
                 {
                     if (role.Contains("coordenador"))
                     {
                         aprovacao.isAprovado = true;
+                        TempData["mensagem"] = MensagemModel.Serializar("Requisição aprovada.", TypeMensagem.Info);
+
                     }
                     else if (role.Contains("colaborador"))
                     {
@@ -297,16 +309,21 @@ namespace IDM.Models
                             if (aprovacao.NumerodeAprovacao == 2)
                             {
                                 aprovacao.isAprovado = true;
+                                TempData["mensagem"] = MensagemModel.Serializar("Requisição aprovada.", TypeMensagem.Info);
 
                             }
                             else
                             {
                                 aprovacao.isAprovado = false;
+                                TempData["mensagem"] = MensagemModel.Serializar("Requisição aprovada, precisa ser aprovada por mais um coordenador.", TypeMensagem.Info);
+
                             }
                         }
                         else if (User.IsInRole("administrador"))
                         {
                             aprovacao.isAprovado = true;
+                            TempData["mensagem"] = MensagemModel.Serializar("Requisição aprovada.", TypeMensagem.Info);
+
                         }
 
                     }
@@ -354,9 +371,11 @@ namespace IDM.Models
                 REQ.EstadoReq = Estado.Rejeitado;
                 stock.Quantidade = stock.Quantidade + REQ.Quantidade;
 
-                _context.Requisicoes.Add(REQ);
-                _context.Produtos.Update(REQ.Produto);
+                _context.Requisicoes.Update(REQ);
                 _context.SaveChanges();
+
+                TempData["mensagem"] = MensagemModel.Serializar("Requisição Rejeitada.", TypeMensagem.Erro);
+
             }
 
             return RedirectToAction("Pedido");
