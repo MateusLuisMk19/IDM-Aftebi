@@ -45,7 +45,7 @@
 </div>
 
 <div class="mt-3">
-    <a asp-action="Index" class="btn btn-light">Voltar</a>
+    <a asp-action="Index" class="btn btn-light"><i class="bi-arrow-left">Voltar</i></a>
     @if (Model.EstadoReq == Estado.Pendente && User.IsInRole("administrador"))
     {
         <a asp-action="Aprovar" asp-route-id="@Model.IdRequisicao" class="btn btn-sm btn-success">Aprovar <i
