@@ -35,12 +35,12 @@
             @foreach (var requisicao in Model)
             {
                 <tr>
-                    <td>@("IDMRQ" + requisicao.IdRequisicao.ToString("D2"))</td>
+                    <td><b>@("IDMRQ" + requisicao.IdRequisicao.ToString("D2"))</b></td>
                     <td>@requisicao.DataRequisicao</td>
                     <td>@requisicao.ProdutoName.ResumoName()</td>
                     <td>@requisicao.Quantidade</td>
                     <td>@requisicao.ValorTotal.ToString("C2", CultureInfo.CreateSpecificCulture("pt-PT")) </td>
-                    <td><a asp-action="Index" asp-route-id="@requisicao.IdColaborador">@requisicao.ColabName</a></td>
+                    <td><a class="text-decoration-none" asp-action="perfil" asp-route-id="@usuario.Id"><b>@requisicao.ColabName</b></a></td>
 
                     @if (requisicao.EstadoReq == Estado.Aprovado)
                     {
@@ -66,9 +66,6 @@
                         {
                             <a asp-action="Excluir" asp-route-id="@requisicao.IdRequisicao" class="btn btn-sm btn-danger"><i
                         class="bi-trash" title="Canselar"></i></a>
-
-                        }
-
                     </td>
                 </tr>
             }

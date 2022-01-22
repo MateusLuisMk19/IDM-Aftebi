@@ -338,5 +338,15 @@ namespace IDM.Controllers
                 return RedirectToAction(nameof(Index));
             }
         }
+
+        public async Task<IActionResult> Perfil(int id)
+        {
+            var utilizador = await _context.Colaboradores.FindAsync(id);
+            if (utilizador == null)
+            {
+                return NotFound();
+            }
+            return View(utilizador);
+        }
     }
 }
