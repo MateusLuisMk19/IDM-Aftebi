@@ -1,5 +1,6 @@
 @model RequisicaoModel
 @using App.Extensions
+@using System.Globalization
 
 @{
     ViewBag.Subtitulo = "Detalhes de Requisição";
@@ -38,7 +39,7 @@
         <p>@Model.ProdutoName</p>
         <p>@Model.DataRequisicao</p>
         <p>@Model.Quantidade</p>
-        <p>@Model.ValorTotal.ToString("C2")</p>
+        <p>@Model.ValorTotal.ToString("C2", CultureInfo.CreateSpecificCulture("pt-PT"))</p>
         <p>@Model.ColabName</p>
         <p><b class="@txtcolor">@Model.EstadoReq</b></p>
     </div>
