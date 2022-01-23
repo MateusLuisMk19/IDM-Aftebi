@@ -180,7 +180,7 @@ namespace IDM.Models
                     _context.Produtos.Update(requis.Produto);
                     _context.SaveChanges();
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", id=requis.IdColaborador);
                 }
                 var prod = _context.Produtos.FirstOrDefault(p => p.IdProduto == req.IdProduto);
 

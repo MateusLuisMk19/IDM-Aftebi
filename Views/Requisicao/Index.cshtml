@@ -4,7 +4,7 @@
 @inject UserManager<ColaboradorModel> _userManager
 @{
     var usuario = await _userManager.GetUserAsync(Context.User);
-    ViewBag.Subtitulo = "Historico de Requisições";
+    ViewBag.Subtitulo = "Histórico de Requisições";
 }
 
 <header class="d-flex justify-content-between align-items-center">

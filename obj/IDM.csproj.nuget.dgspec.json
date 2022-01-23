@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Videos\\Dir\\IDM bk\\IDM.csproj": {}
+    "C:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\IDM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Videos\\Dir\\IDM bk\\IDM.csproj": {
+    "C:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\IDM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Videos\\Dir\\IDM bk\\IDM.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\IDM.csproj",
         "projectName": "IDM",
-        "projectPath": "C:\\Users\\HP\\Videos\\Dir\\IDM bk\\IDM.csproj",
+        "projectPath": "C:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\IDM.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Videos\\Dir\\IDM bk\\obj\\",
+        "outputPath": "C:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",

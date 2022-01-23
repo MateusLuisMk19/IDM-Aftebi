@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\IDM.csproj",
+  "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\IDM.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,168 +15619,158 @@
   "RootNamespace": "IDM",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Shared\\_MensagemPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_MensagemPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Shared\\AcessoRestrito.cshtml",
-      "TargetPath": "Views\\Shared\\AcessoRestrito.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Requisicao\\Index.cshtml",
-      "TargetPath": "Views\\Requisicao\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Usuario\\Cadastrar.cshtml",
-      "TargetPath": "Views\\Usuario\\Cadastrar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\UMedida\\Excluir.cshtml",
-      "TargetPath": "Views\\UMedida\\Excluir.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Nivel\\Index.cshtml",
-      "TargetPath": "Views\\Nivel\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Fornecedor\\Index.cshtml",
-      "TargetPath": "Views\\Fornecedor\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Nivel\\Criar.cshtml",
-      "TargetPath": "Views\\Nivel\\Criar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Usuario\\Excluir.cshtml",
-      "TargetPath": "Views\\Usuario\\Excluir.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Requisicao\\IndexRel.cshtml",
-      "TargetPath": "Views\\Requisicao\\IndexRel.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Fornecedor\\Excluir.cshtml",
-      "TargetPath": "Views\\Fornecedor\\Excluir.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Produto\\Excluir.cshtml",
-      "TargetPath": "Views\\Produto\\Excluir.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Produto\\Index.cshtml",
-      "TargetPath": "Views\\Produto\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Usuario\\Index.cshtml",
-      "TargetPath": "Views\\Usuario\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\UMedida\\Index.cshtml",
-      "TargetPath": "Views\\UMedida\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Estoque\\Criar.cshtml",
-      "TargetPath": "Views\\Estoque\\Criar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\_ViewStart.cshtml",
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Requisicao\\Pedido.cshtml",
-      "TargetPath": "Views\\Requisicao\\Pedido.cshtml",
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Requisicao\\Detalhes.cshtml",
-      "TargetPath": "Views\\Requisicao\\Detalhes.cshtml",
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Produto\\Index.cshtml",
+      "TargetPath": "Views\\Produto\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Fornecedor\\Criar.cshtml",
-      "TargetPath": "Views\\Fornecedor\\Criar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Nivel\\Excluir.cshtml",
-      "TargetPath": "Views\\Nivel\\Excluir.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\UMedida\\Criar.cshtml",
-      "TargetPath": "Views\\UMedida\\Criar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Shared\\_LoginLogoutLinkPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_LoginLogoutLinkPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Requisicao\\Excluir.cshtml",
-      "TargetPath": "Views\\Requisicao\\Excluir.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Estoque\\Excluir.cshtml",
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Estoque\\Excluir.cshtml",
       "TargetPath": "Views\\Estoque\\Excluir.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Estoque\\Index.cshtml",
-      "TargetPath": "Views\\Estoque\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Shared\\_Mensagem.cshtml",
-      "TargetPath": "Views\\Shared\\_Mensagem.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Usuario\\Login.cshtml",
-      "TargetPath": "Views\\Usuario\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Produto\\Criar.cshtml",
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Produto\\Criar.cshtml",
       "TargetPath": "Views\\Produto\\Criar.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\HP\\Videos\\Dir\\IDM bk\\Views\\Requisicao\\Criar.cshtml",
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Nivel\\Criar.cshtml",
+      "TargetPath": "Views\\Nivel\\Criar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Usuario\\Index.cshtml",
+      "TargetPath": "Views\\Usuario\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Produto\\Excluir.cshtml",
+      "TargetPath": "Views\\Produto\\Excluir.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Requisicao\\Pedido.cshtml",
+      "TargetPath": "Views\\Requisicao\\Pedido.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Usuario\\Login.cshtml",
+      "TargetPath": "Views\\Usuario\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Shared\\_MensagemPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_MensagemPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Requisicao\\Criar.cshtml",
       "TargetPath": "Views\\Requisicao\\Criar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Estoque\\Criar.cshtml",
+      "TargetPath": "Views\\Estoque\\Criar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Requisicao\\IndexRel.cshtml",
+      "TargetPath": "Views\\Requisicao\\IndexRel.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Requisicao\\Detalhes.cshtml",
+      "TargetPath": "Views\\Requisicao\\Detalhes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Fornecedor\\Index.cshtml",
+      "TargetPath": "Views\\Fornecedor\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Fornecedor\\Criar.cshtml",
+      "TargetPath": "Views\\Fornecedor\\Criar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Usuario\\Perfil.cshtml",
+      "TargetPath": "Views\\Usuario\\Perfil.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Shared\\AcessoRestrito.cshtml",
+      "TargetPath": "Views\\Shared\\AcessoRestrito.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Usuario\\Cadastrar.cshtml",
+      "TargetPath": "Views\\Usuario\\Cadastrar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Usuario\\Excluir.cshtml",
+      "TargetPath": "Views\\Usuario\\Excluir.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Nivel\\Index.cshtml",
+      "TargetPath": "Views\\Nivel\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Estoque\\Index.cshtml",
+      "TargetPath": "Views\\Estoque\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Requisicao\\Excluir.cshtml",
+      "TargetPath": "Views\\Requisicao\\Excluir.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Shared\\_Mensagem.cshtml",
+      "TargetPath": "Views\\Shared\\_Mensagem.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Shared\\_LoginLogoutLinkPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginLogoutLinkPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Fornecedor\\Excluir.cshtml",
+      "TargetPath": "Views\\Fornecedor\\Excluir.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Nivel\\Excluir.cshtml",
+      "TargetPath": "Views\\Nivel\\Excluir.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Documents\\IDM-Aftebi\\Views\\Requisicao\\Index.cshtml",
+      "TargetPath": "Views\\Requisicao\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],

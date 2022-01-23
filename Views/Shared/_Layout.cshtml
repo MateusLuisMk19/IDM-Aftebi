@@ -90,7 +90,7 @@
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                         @if (!User.IsInRole("administrador"))
                                         {
-                                            <a class="dropdown-item "@* @opRequisicao *@ asp-controller="Requisicao"
+                                            <a class="dropdown-item " asp-controller="Requisicao"
                                         asp-action="Index" asp-route-id="@usuarioLog.Id">Requisições</a>
                                         }
 
@@ -100,7 +100,7 @@
                                             asp-action="Pedido">Requisições Pendentes</a></li>
                                         }
                                         <li><a class="dropdown-item " asp-controller="Requisicao"
-                                            asp-action="Index" asp-route-id="">Historico</a></li>
+                                            asp-action="Index" asp-route-id="">Histórico</a></li>
                                     </ul>
                                 </div>
                             </li>
