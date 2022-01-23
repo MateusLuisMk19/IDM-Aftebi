@@ -13,6 +13,8 @@ namespace IDM.Models
 
         public bool isAprovado { get; set; }
 
+        public int? IdFirstAprovador {get; set;}
+
         public int IdRequisicao {get; set;}
 
         [ForeignKey("IdRequisicao")]

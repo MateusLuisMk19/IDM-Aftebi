@@ -1,12 +1,24 @@
 @model RequisicaoModel
 @{
-    ViewBag.Subtitulo = "Excluir Fornecedor";
-} 
+    var word="";
+    if (!User.IsInRole("administrador"))
+    {
+        ViewBag.Subtitulo = "Cancelar Requisição";
+        word = "cancelar";
+    }
+    else
+    {
+        ViewBag.Subtitulo = "Excluir Requisição";
+        word = "excluir";
+
+    }
+}
 
 <h1 class="text-primary">@ViewBag.Subtitulo</h1>
 <hr>
 
-<h4>Deseja realmente Cancelar a requisição <span class="text-danger"><span>IDMRQ</span>@Model.IdRequisicao.ToString("D2")?</span></h4>
+<h4>Deseja realmente @word a requisição <span
+        class="text-danger"><span>IDMRQ</span>@Model.IdRequisicao.ToString("D2")?</span></h4>
 
 <form asp-action="Excluir" class="w-25">
     <input type="hidden" asp-for="@Model.IdRequisicao">

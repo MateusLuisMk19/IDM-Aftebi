@@ -37,6 +37,9 @@ namespace IDM.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("IdFirstAprovador")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("IdRequisicao")
                         .HasColumnType("INTEGER");
 

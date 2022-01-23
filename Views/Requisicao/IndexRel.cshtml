@@ -70,7 +70,7 @@
                             }
                             else if (requisicao.EstadoReq == Estado.Sem_Estoque || requisicao.EstadoReq == Estado.Pendente)
                             {
-                                <a asp-action="Excluir" asp-route-id="@requisicao.IdRequisicao" class="btn btn-sm btn-danger"><i class="bi-trash" title="Canselar"></i></a>
+                                <a asp-action="Excluir" asp-route-id="@requisicao.IdRequisicao" class="btn btn-sm btn-danger"><i class="bi bi-x-circle-fill" title="Canselar"></i></a>
                             }
                         }
                         else
