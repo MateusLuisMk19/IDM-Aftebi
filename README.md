@@ -25,3 +25,8 @@ Perfis genericos
 
     pass: Admin@123         pass: Coord@123               pass: Coord2@123                  pass: Colab@123
 
+
+Requisitoss
+Visual Studio Code
+https://dotnet.microsoft.com/en-us/download/dotnet/5.0
+https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
