@@ -28,5 +28,7 @@ Perfis genericos
 
 Requisitoss
 Visual Studio Code
+
 https://dotnet.microsoft.com/en-us/download/dotnet/5.0
+
 https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
