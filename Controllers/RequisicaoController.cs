@@ -260,6 +260,8 @@ namespace IDM.Models
         [Authorize(Roles = "coordenador, administrador")]
         public async Task<IActionResult> Aprovar(int? id)
         {
+            var aprovador = await _userManager.GetUserAsync(User);
+
             if (id.HasValue) //aprovar especifico
             {
                 var REQ = await _context.Requisicoes.FindAsync(id);
@@ -275,15 +277,17 @@ namespace IDM.Models
                 REQ.Produto = _context.Produtos.FirstOrDefault(p => p.IdProduto == REQ.IdProduto);
                 REQ.Produto.Nivel = _context.Niveis.FirstOrDefault(n => n.IdNivel == REQ.Produto.IdNivel);
 
-                var aprovador = _context.Colaboradores.FirstOrDefault(c => c.Id == REQ.IdColaborador);
-
                 aprovacao.NumerodeAprovacao++;
                 aprovacao.IdRequisicao = REQ.IdRequisicao;
 
                 var requerente = _context.Colaboradores.FirstOrDefault(c => c.Id == REQ.IdColaborador);
                 var role = _userManager.GetRolesAsync(requerente).Result;
 
-                if (aprovacao.IdFirstAprovador == null)
+                if (aprovacao.IdFirstAprovador != null && aprovacao.IdFirstAprovador == aprovador.Id)
+                {
+                    TempData["mensagem"] = MensagemModel.Serializar("Você já aprovou esta Requisição, precisa da aprovação de outro cordenador.", TypeMensagem.Erro);
+                }
+                else
                 {
                     if (REQ == null)
                     {
@@ -349,10 +353,6 @@ namespace IDM.Models
                     _context.Requisicoes.Update(REQ);
                     _context.Colaboradores.Update(aprovador);
                     _context.SaveChanges();
-                }
-                else
-                {
-                    TempData["mensagem"] = MensagemModel.Serializar("Você já aprovou esta Requisição, precisa da aprovação de outro cordenador.", TypeMensagem.Erro);
                 }
             }
 
