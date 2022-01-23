@@ -4,7 +4,7 @@
 @inject UserManager<ColaboradorModel> _userManager
 @{
     var usuario = await _userManager.GetUserAsync(Context.User);
-    ViewBag.Subtitulo = "Histórico de Requisições";
+    ViewBag.Subtitulo = "Historico de Requisições";
 }
 
 <header class="d-flex justify-content-between align-items-center">
@@ -40,7 +40,7 @@
                     <td>@requisicao.ProdutoName.ResumoName()</td>
                     <td>@requisicao.Quantidade</td>
                     <td>@requisicao.ValorTotal.ToString("C2", CultureInfo.CreateSpecificCulture("pt-PT")) </td>
-                    <td><a class="text-decoration-none" asp-action="perfil" asp-route-id="@usuario.Id"><b>@requisicao.ColabName</b></a></td>
+                    <td><a class="text-decoration-none" asp-controller="Usuario" asp-action="perfil" asp-route-id="@usuario.Id"><b>@requisicao.ColabName</b></a></td>
 
                     @if (requisicao.EstadoReq == Estado.Aprovado)
                     {

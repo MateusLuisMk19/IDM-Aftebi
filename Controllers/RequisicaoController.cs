@@ -180,7 +180,7 @@ namespace IDM.Models
                     _context.Produtos.Update(requis.Produto);
                     _context.SaveChanges();
 
-                    return RedirectToAction("Index", id=requis.IdColaborador);
+                    return RedirectToAction("Index", id = requis.IdColaborador);
                 }
                 var prod = _context.Produtos.FirstOrDefault(p => p.IdProduto == req.IdProduto);
 
@@ -260,6 +260,8 @@ namespace IDM.Models
         [Authorize(Roles = "coordenador, administrador")]
         public async Task<IActionResult> Aprovar(int? id)
         {
+            var aprovador = await _userManager.GetUserAsync(User);
+
             if (id.HasValue) //aprovar especifico
             {
                 var REQ = await _context.Requisicoes.FindAsync(id);
@@ -275,78 +277,83 @@ namespace IDM.Models
                 REQ.Produto = _context.Produtos.FirstOrDefault(p => p.IdProduto == REQ.IdProduto);
                 REQ.Produto.Nivel = _context.Niveis.FirstOrDefault(n => n.IdNivel == REQ.Produto.IdNivel);
 
-                var aprovador = _context.Colaboradores.FirstOrDefault(c => c.Id == REQ.IdColaborador);
-
                 aprovacao.NumerodeAprovacao++;
                 aprovacao.IdRequisicao = REQ.IdRequisicao;
 
                 var requerente = _context.Colaboradores.FirstOrDefault(c => c.Id == REQ.IdColaborador);
                 var role = _userManager.GetRolesAsync(requerente).Result;
 
-                if (REQ == null)
+                if (aprovacao.IdFirstAprovador != null && aprovacao.IdFirstAprovador == aprovador.Id)
                 {
-                    return NotFound();
+                    TempData["mensagem"] = MensagemModel.Serializar("Você já aprovou esta Requisição, precisa da aprovação de outro cordenador.", TypeMensagem.Erro);
                 }
+                else
+                {
+                    if (REQ == null)
+                    {
+                        return NotFound();
+                    }
 
-                if (REQ.Produto.Nivel.Classificacao == 1)
-                {
-                    aprovacao.isAprovado = true;
-                    /*  */
-                    TempData["mensagem"] = MensagemModel.Serializar("Requisição aprovada.", TypeMensagem.Info);
-                }
-                else if (REQ.Produto.Nivel.Classificacao == 2)
-                {
-                    if (role.Contains("coordenador"))
+                    if (REQ.Produto.Nivel.Classificacao == 1)
                     {
                         aprovacao.isAprovado = true;
+                        /*  */
                         TempData["mensagem"] = MensagemModel.Serializar("Requisição aprovada.", TypeMensagem.Info);
-
                     }
-                    else if (role.Contains("colaborador"))
+                    else if (REQ.Produto.Nivel.Classificacao == 2)
                     {
-                        if (User.IsInRole("coordenador"))
-                        {
-                            if (aprovacao.NumerodeAprovacao == 2)
-                            {
-                                aprovacao.isAprovado = true;
-                                TempData["mensagem"] = MensagemModel.Serializar("Requisição aprovada.", TypeMensagem.Info);
-
-                            }
-                            else
-                            {
-                                aprovacao.isAprovado = false;
-                                TempData["mensagem"] = MensagemModel.Serializar("Requisição aprovada, precisa ser aprovada por mais um coordenador.", TypeMensagem.Info);
-
-                            }
-                        }
-                        else if (User.IsInRole("administrador"))
+                        if (role.Contains("coordenador"))
                         {
                             aprovacao.isAprovado = true;
                             TempData["mensagem"] = MensagemModel.Serializar("Requisição aprovada.", TypeMensagem.Info);
 
                         }
+                        else if (role.Contains("colaborador"))
+                        {
+                            if (User.IsInRole("coordenador"))
+                            {
+                                if (aprovacao.NumerodeAprovacao == 2)
+                                {
+                                    aprovacao.isAprovado = true;
+                                    TempData["mensagem"] = MensagemModel.Serializar("Requisição aprovada.", TypeMensagem.Info);
 
+                                }
+                                else
+                                {
+                                    aprovacao.IdFirstAprovador = aprovador.Id;
+                                    aprovacao.isAprovado = false;
+                                    TempData["mensagem"] = MensagemModel.Serializar("Requisição aprovada, precisa ser aprovada por mais um coordenador.", TypeMensagem.Info);
+
+                                }
+                            }
+                            else if (User.IsInRole("administrador"))
+                            {
+                                aprovacao.isAprovado = true;
+                                TempData["mensagem"] = MensagemModel.Serializar("Requisição aprovada.", TypeMensagem.Info);
+
+                            }
+
+                        }
                     }
-                }
 
-                if (aprovacao.isAprovado)
-                {
-                    REQ.EstadoReq = Estado.Aprovado;
-                    //stock.Quantidade = stock.Quantidade - REQ.Quantidade;
-                }
+                    if (aprovacao.isAprovado)
+                    {
+                        REQ.EstadoReq = Estado.Aprovado;
+                        //stock.Quantidade = stock.Quantidade - REQ.Quantidade;
+                    }
 
-                if (aprovacao.IdAprovacao == 0)
-                {
-                    _context.Aprovacoes.Add(aprovacao);
+                    if (aprovacao.IdAprovacao == 0)
+                    {
+                        _context.Aprovacoes.Add(aprovacao);
+                    }
+                    else
+                    {
+                        _context.Aprovacoes.Update(aprovacao);
+                    }
+                    _context.Requisicoes.Update(REQ);
+                    _context.Colaboradores.Update(aprovador);
+                    _context.SaveChanges();
                 }
-                else
-                {
-                    _context.Aprovacoes.Update(aprovacao);
-                }
-                _context.Requisicoes.Update(REQ);
-                _context.Colaboradores.Update(aprovador);
-                _context.SaveChanges();
-
             }
 
             return RedirectToAction("Pedido");
